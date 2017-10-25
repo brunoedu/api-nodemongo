@@ -10,7 +10,6 @@ module.exports = function(app, passport) {
     .get(users.list_all_users)
     .post(users.create_an_user);
 
-
   app
     .route("/users/:userId")
     .get(VerifyToken, users.read_an_user)
