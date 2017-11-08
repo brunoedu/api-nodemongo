@@ -13,6 +13,6 @@ module.exports = function(app, passport) {
   app
     .route("/users/:userId")
     .get(VerifyToken, users.read_an_user)
-    .put(users.update_an_user)
-    .delete(users.delete_an_user);
+    .put(VerifyToken, users.update_an_user)
+    .delete(VerifyToken, users.delete_an_user);
 };

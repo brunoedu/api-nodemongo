@@ -1,9 +1,10 @@
 'use strict';
 var mongoose = require('mongoose');
+require("mongoose-double")(mongoose);
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 
-
+var SchemaTypes = mongoose.Schema.Types;
 var UserSchema = new Schema({
   name: {
     type: String,
@@ -15,10 +16,17 @@ var UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: 'Password of the user'
+    required: 'Password of the user',
+    select: false
   },
   picture:{
     type: String
+  },
+  lat:{
+    type: SchemaTypes.Double 
+  },
+  lng:{
+    type: SchemaTypes.Double
   },
   created_date: {
     type: Date,

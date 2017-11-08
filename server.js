@@ -12,7 +12,7 @@ var express = require('express'),
 require("./api/config/passport")(passport);  
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.database); 
+mongoose.connect(config.database_local); 
 
 app.use(passport.initialize()); 
 

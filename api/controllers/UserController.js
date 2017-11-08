@@ -11,7 +11,7 @@ var mongoose = require("mongoose"),
 exports.authenticate = function(req, res) {
   user.findOne({
     email: req.body.email
-  }, function(err, user){
+  },'+password', function(err, user){
     if(err) res.status(500).send(err);
 
     if(!user){
@@ -76,6 +76,8 @@ exports.update_an_user = function(req, res) {
   user.findOneAndUpdate({_id: req.params.userId}, req.body, {new: true}, function(err, user) {
     if (err)
       res.status(500).send(err);
+
+    delete user.password;
     res.json(user);
   });
 };
